@@ -1,0 +1,29 @@
+Card Name,List,Description,Labels,Start Date,Due Date,Members
+SRE-01 · Project kickoff & topic selection,Done,Assignee: Team | Status on Gantt chart: Done,Team,2026-08-19,2026-08-20,Team
+SRE-02 · Problem background & root-cause research,Done,Assignee: Mishal | Status on Gantt chart: Done,Mishal,2026-08-20,2026-08-22,Mishal
+SRE-03 · Existing solutions / related research,Done,Assignee: Siam | Status on Gantt chart: Done,Siam Hossain,2026-08-21,2026-08-23,Siam
+"SRE-04 · Define scope, actors & proposed solution",Done,Assignee: Mishal | Status on Gantt chart: Done,Mishal,2026-08-23,2026-08-24,Mishal
+SRE-05 · Prepare Consultation #1 brief,Done,Assignee: Team | Status on Gantt chart: Done,Team,2026-08-25,2026-08-26,Team
+SRE-06 · Consultation #1,Done,Assignee: Team | Status on Gantt chart: Done,Team,,2026-08-27,Team
+SRE-07 · Finalize team roles,Done,Assignee: Israt Jahan Surovy | Status on Gantt chart: Done,Israt Jahan Surovy,2026-08-28,2026-08-28,Israt Jahan Surovy
+SRE-08 · Finalize clearer project name,In Progress,Assignee: Israt Jahan Surovy | Status on Gantt chart: In Progress,Israt Jahan Surovy,2026-08-28,2026-08-29,Israt Jahan Surovy
+SRE-09 · Research eKYC process,In Progress,Assignee: Israt Jahan Surovy | Status on Gantt chart: In Progress,Israt Jahan Surovy,2026-08-28,2026-08-29,Israt Jahan Surovy
+SRE-10 · Research ads & payment gateway,In Progress,Assignee: Siam Hossain | Status on Gantt chart: In Progress,Siam Hossain,2026-08-28,2026-08-29,Siam Hossain
+SRE-11 · Plan community outreach,In Progress,Assignee: Mishal | Status on Gantt chart: In Progress,Mishal,2026-08-28,2026-08-29,Mishal
+SRE-12 · Prepare project Gantt chart,In Progress,Assignee: Mishal | Status on Gantt chart: In Progress,Mishal,2026-08-28,2026-08-29,Mishal
+SRE-13 · Requirements elicitation & prioritization,In Progress,Assignee: Team | Status on Gantt chart: In Progress,Team,2026-08-28,2026-08-30,Team
+SRE-14 · First SRS draft / PM review,Planned,Assignee: Team | Status on Gantt chart: Planned,Team,,2026-08-31,Team
+SRE-15 · Revise requirements after PM feedback,Planned,Assignee: Team | Status on Gantt chart: Planned,Team,2026-08-31,2026-09-02,Team
+SRE-16 · System features + FR/NFR specification,Planned,Assignee: Team | Status on Gantt chart: Planned,Team,2026-08-31,2026-09-03,Team
+SRE-17 · Create 3 UML diagrams,Planned,Assignee: Siam Hossain | Status on Gantt chart: Planned,Siam Hossain,2026-09-01,2026-09-04,Siam Hossain
+SRE-18 · Social impact analysis,Planned,Assignee: Mishal | Status on Gantt chart: Planned,Mishal,2026-09-02,2026-09-04,Mishal
+SRE-19 · Consultation #2 (Tentative),Planned,Assignee: Team | Status on Gantt chart: Tentative,"Tentative,Team",,2026-09-04,Team
+SRE-20 · Development plan & SDLC description,Planned,Assignee: Mishal | Status on Gantt chart: Planned,Mishal,2026-09-05,2026-09-08,Mishal
+SRE-21 · Marketing plan,Planned,Assignee: Team | Status on Gantt chart: Planned,Team,2026-09-05,2026-09-08,Team
+SRE-22 · Cost & profit analysis,Planned,Assignee: Siam Hossain | Status on Gantt chart: Planned,Siam Hossain,2026-09-06,2026-09-08,Siam Hossain
+SRE-23 · Integrate report & references,Planned,Assignee: Team | Status on Gantt chart: Planned,Team,2026-09-08,2026-09-10,Team
+SRE-24 · Requirements validation & QA review,Planned,Assignee: Israt Jahan Surovy | Status on Gantt chart: Planned,Israt Jahan Surovy,2026-09-09,2026-09-10,Israt Jahan Surovy
+SRE-25 · Consultation #3 (Tentative),Planned,Assignee: Team | Status on Gantt chart: Tentative,"Tentative,Team",,2026-09-10,Team
+SRE-26 · Final revisions & formatting,Planned,Assignee: Team | Status on Gantt chart: Planned,Team,2026-09-10,2026-09-12,Team
+SRE-27 · Prepare presentation & rehearse,Planned,Assignee: Team | Status on Gantt chart: Planned,Team,2026-09-12,2026-09-13,Team
+SRE-28 · Final submission & presentation,Planned,Assignee: Team | Status on Gantt chart: Milestone,"Milestone,Team",,2026-09-14,Team
