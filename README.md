@@ -19,11 +19,16 @@ chart into Trello and keep the two in sync by hand-editing one task table.
 | Board | Structure | Cards | Link |
 |---|---|---|---|
 | Gantt mirror | 3 lists by status | 28 | https://trello.com/b/3njEcNan |
-| Phase board *(current)* | 6 workflow lists, labels, checklists | 29 | https://trello.com/b/mlRtG8ED |
+| Phase board | 6 workflow lists, labels, checklists | 29 | https://trello.com/b/mlRtG8ED |
+| Shasroy Bazaar *(current)* | 8 SDLC-phase lists (Planning → Support & Maintenance) | 100 | https://trello.com/b/K4uuWzx5 |
 
-Both are **private**. Teammates see nothing until you invite them from the
-board's Share menu. The phase board supersedes the Gantt mirror — consider
-closing the older one so the PM doesn't open the wrong board.
+The Gantt mirror and the 6-list phase board are **private**; teammates see
+nothing until invited from the board's Share menu. **Shasroy Bazaar is
+public.** It carries every task from both the SRE coursework (19 Aug – 14
+Sep 2026) and the solo-developer build roadmap that follows it (15 Sep – 19
+Dec 2026, `trello_phase_reorg_board.py`'s output), reorganized into SDLC
+phases. It supersedes the other two — consider closing them so nobody opens
+the wrong board.
 
 ---
 
@@ -32,7 +37,10 @@ closing the older one so the PM doesn't open the wrong board.
 | File | What it is |
 |---|---|
 | `trello_phase_board.py` | **Main script.** Builds the 6-list phase board with category labels, per-card checklists and Gantt due dates. |
-| `trello_gantt_board.py` | First-generation script: 3 lists (Planned / In Progress / Done), one label per person. Also holds the shared API helpers and `.env` loader that the phase script imports. |
+| `trello_gantt_board.py` | First-generation script: 3 lists (Planned / In Progress / Done), one label per person. Also holds the shared API helpers and `.env` loader that every other script imports. |
+| `trello_sync_cards.py` | Adds `sre_tasks_trello.csv` rows to an existing board as new cards, skipping any key already present. Never duplicates a card. |
+| `trello_phase_reorg_board.py` | Clones every card on the phase board into a **new** board organized by the 8 SDLC phases (Planning → Support & Maintenance) — this is how the Shasroy Bazaar board was built. Read-only against its source board. |
+| `trello_gantt_chart.py` | **Read-only.** Fetches the Shasroy Bazaar board live and renders it as an interactive Gantt chart (`trello_gantt_chart.html`). Safe to re-run any time — see [Visualize the roadmap](#visualize-the-roadmap). |
 | `sre_tasks_trello.csv` | The same 28 tasks flattened for Trello's built-in CSV import. A manual fallback if the API route fails. |
 | `.env` | Trello credentials. **Git-ignored — never commit.** |
 | `.gitignore` | Keeps `.env`, `__pycache__/` and editor noise out of version control. |
@@ -80,6 +88,33 @@ python3 trello_phase_board.py --name "My Board Name"
 
 > ⚠️ **The scripts are create-only.** Re-running builds a *second* board rather
 > than updating the existing one. There is no idempotency check and no update mode.
+
+---
+
+## Visualize the roadmap
+
+`trello_gantt_chart.py` is the exception to the create-only rule above — it
+never writes to Trello at all, only reads. Run it any time to pull the
+Shasroy Bazaar board's current state and render it as a self-contained Gantt
+chart:
+
+```bash
+python3 trello_gantt_chart.py
+```
+
+This writes `trello_gantt_chart.html` — open it directly in a browser. It
+shows the SRE coursework sprint and the DEV build roadmap as two panels on a
+shared day-scale, groups rows by phase/sprint, colors bars by category
+(Backend, Frontend, Architecture, Documentation, Security, DevOps, Testing,
+with everything else folded into Other), marks the 11 milestones and 15
+high-risk cards, and includes a table view for accessibility. Nothing is
+cached — re-run the script whenever the board changes to get a fresh file.
+
+```bash
+python3 trello_gantt_chart.py --out somewhere/else.html   # custom output path
+python3 trello_gantt_chart.py --board-id XXXXXXXX         # point at a different board
+python3 trello_gantt_chart.py --dry-run                   # print a summary, write nothing
+```
 
 ---
 
