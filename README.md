@@ -116,6 +116,20 @@ python3 trello_gantt_chart.py --board-id XXXXXXXX         # point at a different
 python3 trello_gantt_chart.py --dry-run                   # print a summary, write nothing
 ```
 
+### Print on A4
+
+```bash
+python3 trello_gantt_chart.py --a4
+```
+
+This writes `trello_gantt_chart_a4.html`, the same data split into A4-landscape
+pages. Page 1 is an overview: totals, one bar per phase or sprint, and the
+milestone list. The Course Sprint and Build Roadmap follow in detail, with each
+task's dates and status printed beside its bar. The post-v1 backlog closes it.
+Open the file in a browser, then print it or choose **Save as PDF**. The page
+size is preset. To show a single page (for a screenshot, say), append
+`#sheet-2` (or any page number) to the URL.
+
 ---
 
 ## Board structure

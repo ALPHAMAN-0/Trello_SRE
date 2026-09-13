@@ -32,6 +32,7 @@ from trello_gantt_board import api
 
 SOURCE_BOARD_ID = "K4uuWzx5"          # Shasroy Bazaar - Project Phases (public)
 OUT_DEFAULT = "trello_gantt_chart.html"
+OUT_A4_DEFAULT = "trello_gantt_chart_a4.html"
 
 KEY_RE = re.compile(r"^([A-Za-z]+-\d+)")
 SPRINT_RE = re.compile(r"\*\*Sprint:\*\*\s*(.+)")
@@ -241,9 +242,13 @@ def print_summary(payload, skipped):
 def main():
     ap = argparse.ArgumentParser(description="Render the Shasroy Bazaar phase board as a Gantt chart.")
     ap.add_argument("--board-id", default=SOURCE_BOARD_ID, help="Trello board short ID")
-    ap.add_argument("--out", default=OUT_DEFAULT, help="Output HTML path")
+    ap.add_argument("--out", default=None,
+                    help=f"Output HTML path (default {OUT_DEFAULT}, or {OUT_A4_DEFAULT} with --a4)")
+    ap.add_argument("--a4", action="store_true",
+                    help="Write the paginated A4-landscape print version instead of the screen chart")
     ap.add_argument("--dry-run", action="store_true", help="Fetch and summarize only; write nothing")
     args = ap.parse_args()
+    out = args.out or (OUT_A4_DEFAULT if args.a4 else OUT_DEFAULT)
 
     board, lists, cards = fetch_board(args.board_id)
     payload, skipped = build_payload(board, lists, cards)
@@ -253,12 +258,18 @@ def main():
         print("\n--dry-run: no file written.")
         return
 
-    from trello_gantt_chart_template import render
+    if args.a4:
+        from trello_gantt_chart_a4_template import render_a4 as render
+    else:
+        from trello_gantt_chart_template import render
     html = render(payload)
-    with open(args.out, "w", encoding="utf-8") as fh:
+    with open(out, "w", encoding="utf-8") as fh:
         fh.write(html)
-    print(f"\nWrote {args.out}")
-    print("Open it in a browser, or re-run this script any time to refresh from Trello.")
+    print(f"\nWrote {out}")
+    if args.a4:
+        print("Open it in a browser and print (A4 landscape is preset), or Save as PDF.")
+    else:
+        print("Open it in a browser, or re-run this script any time to refresh from Trello.")
 
 
 if __name__ == "__main__":

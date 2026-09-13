@@ -824,5 +824,6 @@ const DATA = %%DATA_JSON%%;
 
 def render(payload):
     html = _HTML.replace("%%TITLE%%", TITLE)
-    html = html.replace("%%DATA_JSON%%", json.dumps(payload, ensure_ascii=False))
+    # "</" inside a card title would otherwise close the <script> early.
+    html = html.replace("%%DATA_JSON%%", json.dumps(payload, ensure_ascii=False).replace("</", "<\\/"))
     return html

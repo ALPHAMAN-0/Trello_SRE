@@ -17,6 +17,7 @@ tags: [architecture, Trello_SRE]
 | `trello_phase_reorg_board.py` | Clones the phase board into a new board organized by 8 SDLC phases — built the Shasroy Bazaar board (K4uuWzx5) |
 | `trello_gantt_chart.py` | Read-only — fetches the Shasroy Bazaar board and renders `trello_gantt_chart.html`, an interactive Gantt chart |
 | `trello_gantt_chart_template.py` | HTML/CSS/JS template rendered by `trello_gantt_chart.py`; not run directly |
+| `trello_gantt_chart_a4_template.py` | A4-landscape print layout rendered by `trello_gantt_chart.py --a4` (writes `trello_gantt_chart_a4.html`); not run directly |
 | `sre_tasks_trello.csv` | Manual fallback: same 28 tasks flattened for Trello's CSV import (README.md:36) |
 | `.env` | Trello credentials — TRELLO_KEY / TRELLO_SECRET / TRELLO_TOKEN. Git-ignored (README.md:37, 51-55) |
 | `__pycache__/` | Compiled bytecode, build artifact |
@@ -42,7 +43,7 @@ flowchart TD
 - **Main / prod:** `python3 trello_phase_board.py` (README.md:72) — creates the phase board.
   - Dry run (no API calls): `python3 trello_phase_board.py --dry-run` (README.md:66)
   - Override board name: `python3 trello_phase_board.py --name "My Board Name"` (README.md:78)
-- **Visualize (read-only):** `python3 trello_gantt_chart.py` — [[GanttChartScript]]. Fetches board K4uuWzx5 live and writes `trello_gantt_chart.html`. Safe to re-run anytime; makes no writes to Trello.
+- **Visualize (read-only):** `python3 trello_gantt_chart.py` — [[GanttChartScript]]. Fetches board K4uuWzx5 live and writes `trello_gantt_chart.html`; `--a4` writes the paginated A4-landscape print version `trello_gantt_chart_a4.html` instead. Safe to re-run anytime; makes no writes to Trello.
 - **Legacy:** `trello_gantt_board.py` — first-generation Gantt-mirror board script; also supplies shared API helpers/`load_env()` imported by every other script (README.md:35). No separate CLI usage documented in README.
 
 ## 6. Conventions
