@@ -23,8 +23,8 @@ _HTML = r"""<title>%%TITLE%%</title>
 <style>
   :root {
     color-scheme: light;
-    --page-bg:      #f5f1e5;
-    --page-plane:   #efe9d8;
+    --page-bg:      #ffffff;
+    --page-plane:   #f2f2ef;
     --surface-1:    #fcfcfb;
     --surface-2:    #f3f0e8;
     --text-primary: #0b0b0b;
