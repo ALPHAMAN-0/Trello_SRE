@@ -7,12 +7,12 @@ chart. Stdlib only — no `pip install` needed.
 ## Architecture / How it Works
 
 ```mermaid
-flowchart LR
-    A[User] --> B[Trello Sre]
-    B --> C{Logic}
-    C --> D[(Data)]
-    C --> E[Output]
-    D --> C
+flowchart TD
+    PhaseBoardScript --> GanttBoardScript
+    GanttBoardScript --> EnvConfig
+    PhaseBoardScript -.manual fallback.-> TaskCSVFallback
+    GanttChartScript --> GanttBoardScript
+    GanttChartScript -.reads.-> ShasroyBazaarBoard[(K4uuWzx5)]
 ```
 
 
