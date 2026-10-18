@@ -4,6 +4,18 @@ Python scripts that build the Trello boards for the **Software Requirement
 Engineering Project** (19 Aug – 14 Sep 2026) straight from the project Gantt
 chart. Stdlib only — no `pip install` needed.
 
+## Architecture / How it Works
+
+```mermaid
+flowchart LR
+    A[User] --> B[Trello Sre]
+    B --> C{Logic}
+    C --> D[(Data)]
+    C --> E[Output]
+    D --> C
+```
+
+
 The point of this repo: the course requires the schedule to live in a real
 project management tool, not only in Word or Excel. These scripts push the Gantt
 chart into Trello and keep the two in sync by hand-editing one task table.
